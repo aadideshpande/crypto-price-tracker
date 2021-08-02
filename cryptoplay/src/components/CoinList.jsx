@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import coinGecko from '../apis/coinGecko';
+import { WatchListContext } from '../context/watchListContext';
 
 const CoinList = () => {
     const [coins, setCoins] = useState([]);
+    const { watchList } = useContext(WatchListContext);
+    console.log(watchList);
     useEffect(() => {
         const fetchData = async () => {
             const response = await coinGecko.get("/coins/markets", {
                 params: {
                     vs_currency: "usd",
-                    ids: "bitcoin, ethereum"
+                    ids: watchList.join(",")
                 }
             })
             console.log(response.data);
