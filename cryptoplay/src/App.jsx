@@ -7,7 +7,7 @@ import "./App.css"
 import { WatchListContextProvider } from './context/watchListContext';
 const App = () => {
     return (
-        <div>
+        <div className="container">
             <WatchListContextProvider>
                 <BrowserRouter>
                     <Header />
