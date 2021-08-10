@@ -13,7 +13,7 @@ const Coin = ({ coin, deleteCoin }) => {
                     {coin.name}
                 </span>
                 <span className="text-decoration-none">
-                    {coin.current_price}
+                    {'$' + coin.current_price}
                 </span>
                 <span className={
                     coin.price_change_percentage_24h < 0 ?
