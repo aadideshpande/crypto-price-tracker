@@ -10,8 +10,14 @@ export const WatchListContextProvider = props => {
         }))
     }
 
+    const addCoin = coin => {
+        // check if coin is already in our list or not
+        if (watchList.indexOf(coin) == -1) {
+            setWatchList([...watchList, coin]);
+        }
+    }
     return (
-        <WatchListContext.Provider value = {{watchList, deleteCoin}}>
+        <WatchListContext.Provider value = {{watchList, deleteCoin, addCoin}}>
             {props.children}
         </WatchListContext.Provider>
     )
